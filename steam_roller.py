@@ -1,18 +1,34 @@
-def stream_roller(arr):
-    new=[]
-    for i in range(len(arr)):
-        print(arr[i])
-        if type(arr[1])._name_ == 'list':
-            print(arr[1])
-            for  j in range(len(arr)):
-                if type(arr[j])._name_ != 'list':
-                    new.append(arr[j])
-
-                else:
-                    stream_roller(arr[j])
-    return new
-
+'''
+FreeCodeCamp -> JavaScript Algorithms and Data Structures -> Intermediate Algorithm Scripting
+    Problem:
+        Steamroller
+    Explanation:
+        Flatten a nested array. You must account for varying levels of nesting.
+        Inputs and expected outputs:
+        steamroll_array([[["a"]], [["b"]]]) should return ["a", "b"].
+        steamroll_array([1, [2], [3, [[4]]]]) should return [1, 2, 3, 4].
+        steamroll_array([1, [], [3, [[4]]]]) should return [1, 3, 4].
+        steamroll_array([1, {}, [3, [[4]]]]) should return [1, {}, 3, 4].
+'''
 
 
-arr = [1, [2], [3, [[4]]]]
-print(stream_roller(arr))
+def steamroll_array(arr: list) -> list:
+    '''
+    This function flattewns an array
+
+    @param arr: an array with subarrays
+    @return: a flattened array
+
+    '''
+    for item in arr:
+        if type(item).__name__ == 'list':
+            print(type(item).__name__)
+            steamroll_array(item)
+        else:
+            new_arr.append(item)
+    return new_arr
+
+
+array = [1, {}, [3, [[4]]]]
+new_arr = []
+print(steamroll_array(array))
