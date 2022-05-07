@@ -25,16 +25,16 @@ def truth_check(collection, pre):
     '''
     This function match every value in dictionaries
     @param arr:dictionaries in array
-    @return  :Bool value 
+    @return  :Bool value
     '''
+
     for dic in collection:
-        for value in dic.values():
-            if value == pre:
-                return True
-                continue
-            else:
-                return False
+        if not dic[pre]:
+            return False
+    return True
 
 
-print(truth_check([{'name': "Quincy", 'role': "Founder", 'isBot': 'false'}, {'name': "Naomi",
-      'role': "", 'isBot': 'false'}, {'name': "Camperbot", 'role': "Bot", 'isBot': 'true'}], "isBot"))
+print(truth_check([{'name': "Quincy", 'role': "Founder", 'isBot': False},
+                   {'name': "Naomi", 'role': "", 'isBot': False},
+                   {'name': "Camperbot", 'role': "Bot", 'isBot': True}],
+                  "role"))
