@@ -22,7 +22,6 @@ def steamroll_array(arr: list) -> list:
     '''
     for item in arr:
         if type(item).__name__ == 'list':
-            print(type(item).__name__)
             steamroll_array(item)
         else:
             new_arr.append(item)
